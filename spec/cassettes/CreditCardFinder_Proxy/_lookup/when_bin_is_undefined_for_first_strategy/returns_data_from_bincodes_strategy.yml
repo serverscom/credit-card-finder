@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bincodes.com/bin/json/1111111111111111/537465/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.bincodes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 30 May 2018 09:04:46 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d327dd31a20bc9f0021ad77d08ea3c8491527671085; expires=Thu, 30-May-19
+        09:04:45 GMT; path=/; domain=.bincodes.com; HttpOnly; Secure
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Railgun:
+      - d5fd3422ca 1.71 0.115772 0030 5f99
+      X-Turbo-Charged-By:
+      - LiteSpeed
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 423008feff2c6a25-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+            "bin": "537465",
+            "bank": "BUNQ B.V.",
+            "card": "MASTERCARD",
+            "type": "DEBIT",
+            "level": "STANDARD",
+            "country": "NETHERLANDS",
+            "countrycode": "NL",
+            "website": "",
+            "phone": "",
+            "valid": "true"
+        }
+    http_version: 
+  recorded_at: Wed, 30 May 2018 09:04:46 GMT
+recorded_with: VCR 4.0.0

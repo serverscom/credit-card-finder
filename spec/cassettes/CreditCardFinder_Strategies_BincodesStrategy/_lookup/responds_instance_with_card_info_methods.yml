@@ -1,0 +1,123 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bincodes.com/bin/json/1111111111111111/427230/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.bincodes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 30 May 2018 08:33:59 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dfd231377bfd28adf3766cea5de92ebdd1527669239; expires=Thu, 30-May-19
+        08:33:59 GMT; path=/; domain=.bincodes.com; HttpOnly; Secure
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Railgun:
+      - 2bc98e3d69 stream 0.000000 0210 5f99
+      X-Turbo-Charged-By:
+      - LiteSpeed
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 422fdbe7fa906a85-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+            "bin": "427230",
+            "bank": "BANK VTB24 (CJSC)",
+            "card": "VISA",
+            "type": "CREDIT",
+            "level": "GOLD",
+            "country": "RUSSIAN FEDERATION",
+            "countrycode": "RU",
+            "website": "HTTP://WWW.VTB24.RU/",
+            "phone": "8 800 100-24-24",
+            "valid": "true"
+        }
+    http_version: 
+  recorded_at: Wed, 30 May 2018 08:33:59 GMT
+- request:
+    method: get
+    uri: https://api.bincodes.com/bin/json/1111111111111111/427230/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.bincodes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 30 May 2018 08:36:28 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d8aa8b58a7168744ec6a9b986c393bd3e1527669388; expires=Thu, 30-May-19
+        08:36:28 GMT; path=/; domain=.bincodes.com; HttpOnly; Secure
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Railgun:
+      - d719fb90a6 1.45 0.107190 0030 5f99
+      X-Turbo-Charged-By:
+      - LiteSpeed
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 422fdf8dffd36a19-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+            "bin": "427230",
+            "bank": "BANK VTB24 (CJSC)",
+            "card": "VISA",
+            "type": "CREDIT",
+            "level": "GOLD",
+            "country": "RUSSIAN FEDERATION",
+            "countrycode": "RU",
+            "website": "HTTP://WWW.VTB24.RU/",
+            "phone": "8 800 100-24-24",
+            "valid": "true"
+        }
+    http_version: 
+  recorded_at: Wed, 30 May 2018 08:36:28 GMT
+recorded_with: VCR 4.0.0

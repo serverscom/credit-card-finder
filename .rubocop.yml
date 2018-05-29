@@ -1,0 +1,82 @@
+# This is the configuration used to check the rubocop source code.
+
+inherit_from:
+  - https://raw.githubusercontent.com/serverscom/best-practices/master/.rubocop.yml
+  - .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'bin/deploy'
+    - 'vendor/**/*'
+    - '*/vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - '*/tmp/**/*'
+    - 'portal/node_modules/**/*'
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/Guardfile'
+    - '**/*.gemspec'
+    - '**/*.rb'
+
+Style/AsciiComments:
+  Enabled: false
+
+Lint/FormatParameterMismatch:
+  Exclude:
+    - wz_model/lib/models/onsite_time_slot.rb
+
+Style/GuardClause:
+  Exclude:
+    - wz_model/lib/tasks/ar.rake
+    - wz_model/lib/use_cases/provisioning/uplink_price_update_stage.rb
+
+Layout/MultilineMethodCallIndentation:
+  Exclude:
+    - wz_model/lib/models/server.rb
+
+Metrics/ClassLength:
+  Exclude:
+    - 'wz_model/db/migrate/main/20170116171048_squashed_migrations.rb'
+    - 'wz_model/lib/models/account.rb'
+
+Metrics/MethodLength:
+  Exclude:
+    - 'wz_model/db/migrate/main/20170116171048_squashed_migrations.rb'
+    - 'wz_model/spec/support/os_helpers.rb'
+
+Performance/Casecmp:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - '**/*.rake'
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+Layout/FirstParameterIndentation:
+  Enabled: true
+Layout/MultilineArrayBraceLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+  EnforcedStyle: symmetrical
+Layout/MultilineMethodDefinitionBraceLayout:
+  Enabled: true
+  EnforcedStyle: symmetrical
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: leading
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
