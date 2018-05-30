@@ -11,7 +11,7 @@ module CreditCardFinder
         level
         country
         countrycode
-      ]
+      ].freeze
 
       CARD_INFO_METHODS.each do |m|
         define_method(m) do
@@ -19,7 +19,7 @@ module CreditCardFinder
         end
       end
 
-      def lookup(code)
+      def lookup(_code)
         raise NotImplementedError
       end
     end

@@ -11,7 +11,7 @@ module CreditCardFinder
         'card' => 'brand',
         'type' => 'type',
         'level' => 'category'
-      }
+      }.freeze
 
       def lookup(number)
         @card_data = CreditCardBin.new(number).data

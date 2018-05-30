@@ -7,7 +7,6 @@ require 'json'
 module CreditCardFinder
   module Clients
     class Bincodes
-      SUCCESS_STATUS_CODE = '200'
       BIN_RANGE = 0..5
 
       attr_reader :data, :errors
@@ -20,12 +19,7 @@ module CreditCardFinder
         response = nil
         uri = uri(code.to_s[BIN_RANGE])
 
-        Net::HTTP.start(
-          uri.host,
-          uri.port,
-          read_timeout: timeout,
-          use_ssl: true
-        ) do |http|
+        Net::HTTP.start(uri.host, uri.port, read_timeout: timeout, use_ssl: true) do |http|
           request = Net::HTTP::Get.new(uri)
           response = http.request(request)
         end
@@ -47,26 +41,35 @@ module CreditCardFinder
         CreditCardFinder.logger
       end
 
+      # rubocop:disable Metrics/MethodLength
       def handle_response(response)
-        if response.code != SUCCESS_STATUS_CODE
-          @errors[:code] = response.code
-          @errors[:message] = "Unexpected error from #{endpoint_host}"
-          logger.error("BincodesError: #{endpoint_host}. #{response.code}, #{response.body}")
+        unless response.is_a?(Net::HTTPSuccess)
+          halt_unexpected_error(response)
           return self
         end
 
         body = JSON.parse(response.body)
-
-        if body.has_key?('error')
-          @errors[:code] = body['error']
-          @errors[:message] = body['message']
-          logger.error("BincodesError: [#{errors[:code]}] #{errors[:message]}")
+        if body.key?('error')
+          halt_service_error(body)
           return self
         end
 
-        logger.info("Fetch credit card data bin #{body['bin']} from #{endpoint_host}")
         @data = body
+        logger.info("Fetch credit card data bin #{body['bin']} from #{endpoint_host}")
         self
+      end
+      # rubocop:enable Metrics/MethodLength
+
+      def halt_service_error(body)
+        @errors[:code] = body['error']
+        @errors[:message] = body['message']
+        logger.error("BincodesError: [#{errors[:code]}] #{errors[:message]}")
+      end
+
+      def halt_unexpected_error(response)
+        @errors[:code] = response.code
+        @errors[:message] = "Unexpected error from #{endpoint_host}"
+        logger.error("BincodesError: #{endpoint_host}. #{response.code}, #{response.body}")
       end
 
       def timeout
