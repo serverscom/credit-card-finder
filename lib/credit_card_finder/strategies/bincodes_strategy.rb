@@ -4,7 +4,7 @@ module CreditCardFinder
   module Strategies
     class BincodesStrategy < BaseStrategy
       def lookup(code)
-        res = ::CreditCardFinder::Clients::Bincodes.new.fetch(code)
+        res = CreditCardFinder::Clients::Bincodes.new.fetch(code)
         return if res.invalid?
 
         @card_data = res.data

@@ -44,13 +44,13 @@ module CreditCardFinder
       private
 
       def logger
-        ::CreditCardFinder.logger
+        CreditCardFinder.logger
       end
 
       def handle_response(response)
         if response.code != SUCCESS_STATUS_CODE
           @errors[:code] = response.code
-          @errors[:message] = 'Unexpected error from #{endpoint_host}'
+          @errors[:message] = "Unexpected error from #{endpoint_host}"
           logger.error("BincodesError: #{endpoint_host}. #{response.code}, #{response.body}")
           return self
         end
@@ -70,15 +70,15 @@ module CreditCardFinder
       end
 
       def timeout
-        ::CreditCardFinder.config.bincodes.timeout || 10
+        CreditCardFinder.config.bincodes.timeout || 10
       end
 
       def endpoint_host
-        ::CreditCardFinder.config.bincodes.api_url
+        CreditCardFinder.config.bincodes.api_url
       end
 
       def api_key
-        ::CreditCardFinder.config.bincodes.api_key
+        CreditCardFinder.config.bincodes.api_key
       end
 
       def uri(code)

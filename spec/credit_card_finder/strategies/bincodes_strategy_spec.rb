@@ -11,7 +11,7 @@ RSpec.describe CreditCardFinder::Strategies::BincodesStrategy, :vcr do
 
   describe '#lookup' do
     subject { described_class.new }
-    
+
     it 'responds instance with card info methods' do
       expect(subject.lookup(bin)).to eq subject
       expect(subject.bin).to eq bin

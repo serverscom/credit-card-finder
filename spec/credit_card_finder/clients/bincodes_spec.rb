@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe CreditCardFinder::Clients::Bincodes, :vcr do
-  describe "#fetch" do
+  describe '#fetch' do
     before do
       CreditCardFinder::Config.configure do |config|
         config.bincodes.api_key = '1111111111111111'
@@ -15,7 +15,7 @@ RSpec.describe CreditCardFinder::Clients::Bincodes, :vcr do
       expect(subject.fetch(bin)).to eq subject
       expect(subject.data['card']).to eq 'VISA'
       expect(subject.data['type']).to eq 'DEBIT'
-      expect(subject.data['bank']).to match /SBERBANK/
+      expect(subject.data['bank']).to match(/SBERBANK/)
       expect(subject.data['countrycode']).to eq 'RU'
       expect(subject.data['level']).to eq 'CLASSIC'
     end
@@ -30,8 +30,8 @@ RSpec.describe CreditCardFinder::Clients::Bincodes, :vcr do
       it 'returns with error' do
         expect(subject.fetch(bin)).to eq subject
         expect(subject.valid?).to eq false
-        expect(subject.errors[:code]).to eq "1002"
-        expect(subject.errors[:message]).to eq "Invalid API Key"
+        expect(subject.errors[:code]).to eq '1002'
+        expect(subject.errors[:message]).to eq 'Invalid API Key'
       end
     end
 
@@ -46,7 +46,7 @@ RSpec.describe CreditCardFinder::Clients::Bincodes, :vcr do
         expect(subject.fetch(bin)).to eq subject
         expect(subject.valid?).to eq false
         expect(subject.errors[:code]).to eq '404'
-        expect(subject.errors[:message]).to match /Unexpected error/
+        expect(subject.errors[:message]).to match(/Unexpected error/)
       end
     end
   end

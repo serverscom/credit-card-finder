@@ -25,11 +25,7 @@ module CreditCardFinder
     end
 
     def resolve_strategies
-      CreditCardFinder.config.strategies || default_strategies
-    end
-
-    def default_strategies
-      %w[CreditCardBinsStrategy BincodesStrategy]
+      CreditCardFinder.config.strategies
     end
 
     def search_strategy(strategy)

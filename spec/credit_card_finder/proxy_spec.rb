@@ -9,7 +9,7 @@ RSpec.describe CreditCardFinder::Proxy, :vcr do
 
   describe '#lookup' do
     subject { described_class.new }
-    
+
     let(:bin) { '427230' }
 
     it 'returns data from first winner strategy' do

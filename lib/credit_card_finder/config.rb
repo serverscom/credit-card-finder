@@ -8,7 +8,7 @@ module CreditCardFinder
     extend Dry::Configurable
 
     setting :bincodes do
-      setting :api_key, '8a7e0deb30cedef0e9d7f78d2063c8ac'
+      setting :api_key, '11111111111111'
       setting :api_url, 'https://api.bincodes.com'
       setting :timeout, 10
     end

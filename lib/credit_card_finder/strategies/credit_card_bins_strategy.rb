@@ -20,7 +20,7 @@ module CreditCardFinder
         nil
       end
 
-      (CARD_INFO_METHODS - %w(country countrycode)).each do |m|
+      (CARD_INFO_METHODS - %w[country countrycode]).each do |m|
         define_method(m) do
           @card_data.fetch(CARD_INFO_MATCHING[m], nil)
         end

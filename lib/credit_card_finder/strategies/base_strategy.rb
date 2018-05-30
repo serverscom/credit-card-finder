@@ -3,7 +3,7 @@
 module CreditCardFinder
   module Strategies
     class BaseStrategy
-      CARD_INFO_METHODS = %w(
+      CARD_INFO_METHODS = %w[
         bin
         bank
         card
@@ -11,7 +11,7 @@ module CreditCardFinder
         level
         country
         countrycode
-      )
+      ]
 
       CARD_INFO_METHODS.each do |m|
         define_method(m) do

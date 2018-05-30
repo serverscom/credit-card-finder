@@ -3,7 +3,7 @@
 RSpec.describe CreditCardFinder::Strategies::CreditCardBinsStrategy, :vcr do
   let(:bin) { '427230' }
 
-  describe "#lookup" do
+  describe '#lookup' do
     subject { described_class.new }
 
     it 'returns instance with card info methods' do
