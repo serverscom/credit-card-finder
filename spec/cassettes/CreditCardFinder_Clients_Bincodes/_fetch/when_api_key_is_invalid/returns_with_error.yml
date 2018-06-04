@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bincodes.com/bin/json/foobar2/427664/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.bincodes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 30 May 2018 07:51:39 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=deacda9ff171b7d89e6022f895460caa91527666699; expires=Thu, 30-May-19
+        07:51:39 GMT; path=/; domain=.bincodes.com; HttpOnly; Secure
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Railgun:
+      - direct (starting new WAN connection)
+      X-Turbo-Charged-By:
+      - LiteSpeed
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 422f9de698db3590-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+            "error": "1002",
+            "message": "Invalid API Key",
+            "valid": "false"
+        }
+    http_version: 
+  recorded_at: Wed, 30 May 2018 07:51:39 GMT
+recorded_with: VCR 4.0.0

@@ -1,0 +1,52 @@
+# This is the configuration used to check the rubocop source code.
+
+inherit_from:
+  - https://raw.githubusercontent.com/serverscom/best-practices/master/.rubocop.yml
+
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - '*/tmp/**/*'
+  Include:
+    - '**/Gemfile'
+    - '**/*.gemspec'
+    - '**/*.rb'
+
+Style/AsciiComments:
+  Enabled: false
+
+Performance/Casecmp:
+  Enabled: false
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: true
+Layout/FirstHashElementLineBreak:
+  Enabled: true
+Layout/FirstMethodArgumentLineBreak:
+  Enabled: true
+Layout/FirstMethodParameterLineBreak:
+  Enabled: true
+Layout/FirstParameterIndentation:
+  Enabled: true
+Layout/MultilineArrayBraceLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Layout/MultilineHashBraceLayout:
+  Enabled: true
+  EnforcedStyle: new_line
+Layout/MultilineMethodCallBraceLayout:
+  Enabled: true
+  EnforcedStyle: symmetrical
+Layout/MultilineMethodDefinitionBraceLayout:
+  Enabled: true
+  EnforcedStyle: symmetrical
+Layout/DotPosition:
+  Enabled: true
+  EnforcedStyle: leading
+Layout/MultilineMethodCallIndentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+    - '*.gemspec'

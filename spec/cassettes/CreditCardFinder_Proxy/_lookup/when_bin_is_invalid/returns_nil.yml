@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bincodes.com/bin/json/1111111111111111/foobar/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.bincodes.com
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 30 May 2018 12:48:42 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=dab75e635aae35f424a0d95e2618ba9711527684522; expires=Thu, 30-May-19
+        12:48:42 GMT; path=/; domain=.bincodes.com; HttpOnly; Secure
+      Access-Control-Allow-Origin:
+      - "*"
+      Cf-Railgun:
+      - '0942b95739 stream 0.000000 0200 5f99'
+      X-Turbo-Charged-By:
+      - LiteSpeed
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 42315109898635f6-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: |
+        {
+            "error": "1011",
+            "message": "Invalid BIN",
+            "valid": "false"
+        }
+    http_version: 
+  recorded_at: Wed, 30 May 2018 12:48:42 GMT
+recorded_with: VCR 4.0.0

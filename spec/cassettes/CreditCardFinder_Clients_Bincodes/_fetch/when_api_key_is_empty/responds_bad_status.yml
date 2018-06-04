@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.bincodes.com/bin/json//427664/
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.bincodes.com
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Date:
+      - Wed, 30 May 2018 08:06:58 GMT
+      Content-Type:
+      - text/html
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Set-Cookie:
+      - __cfduid=d2657ca1f4a4229199304478fe04ac5991527667617; expires=Thu, 30-May-19
+        08:06:57 GMT; path=/; domain=.bincodes.com; HttpOnly; Secure
+      Cache-Control:
+      - private, no-cache, no-store, must-revalidate, max-age=0
+      Cf-Railgun:
+      - direct (starting new WAN connection)
+      Pragma:
+      - no-cache
+      X-Turbo-Charged-By:
+      - LiteSpeed
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 422fb453cbd86a9d-LHR
+    body:
+      encoding: ASCII-8BIT
+      string: "<!DOCTYPE html>\n<html style=\"height:100%\">\n<head><title> 404 Not
+        Found\r\n</title><script src=\"/cdn-cgi/apps/head/np0TRKZANL0ZQ3hTbPYvEhisooU.js\"></script></head>\n<body
+        style=\"color: #444; margin:0;font: normal 14px/20px Arial, Helvetica, sans-serif;
+        height:100%; background-color: #fff;\">\n<div style=\"height:auto; min-height:100%;
+        \">     <div style=\"text-align: center; width:800px; margin-left: -400px;
+        position:absolute; top: 30%; left:50%;\">\n        <h1 style=\"margin:0; font-size:150px;
+        line-height:150px; font-weight:bold;\">404</h1>\n<h2 style=\"margin-top:20px;font-size:
+        30px;\">Not Found\r\n</h2>\n<p>The resource requested could not be found on
+        this server!</p>\n</div></div></body></html>\n"
+    http_version: 
+  recorded_at: Wed, 30 May 2018 08:06:58 GMT
+recorded_with: VCR 4.0.0
