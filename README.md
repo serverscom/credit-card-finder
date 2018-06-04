@@ -1,8 +1,7 @@
 # CreditCardFinder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/credit_card_finder`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem allows you to find some credit card information by BIN/IIN code. Now it uses two strategies for search. First strategy use 'credit_card_bins' gem and provide search in YAML files.
+Second strategy use bincodes.com API (so you will need register and get api key).
 
 ## Installation
 
@@ -20,15 +19,33 @@ Or install it yourself as:
 
     $ gem install credit_card_finder
 
+## Configuration
+
+```ruby
+CreditCardFinder::Config.configure do |config|
+    config.bincodes.api_key = 'your_api_key'
+    
+    # set timeout for api request
+    config.bincodes.timeout = 10 # already set by default
+    
+    # alredy set by default
+    config.strategies = %w[CreditCardBinsStrategy BincodesStrategy]
+    
+    # also you can use custom logger instance
+    config.logger = Logger.new(STDOUT)
+end
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+If you want use strategies for search, you just need make call:
 
-## Development
+```ruby
+bin = '427664'
+CreditCardFinder.lookup(bin)
+```
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+By default that call will be search firstly in YAML files via `credit_card_bins` gem, and if find nothing, will search via bincodes.com.
 
 ## Contributing
 
