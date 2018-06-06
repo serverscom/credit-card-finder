@@ -22,5 +22,13 @@ RSpec.describe CreditCardFinder::Strategies::CreditCardBinsStrategy, :vcr do
         expect(subject.lookup(bin)).to eq nil
       end
     end
+
+    context 'when bin is invalid' do
+      let(:bin) { '4935' }
+
+      it 'returns nil' do
+        expect(subject.lookup(bin)).to eq nil
+      end
+    end
   end
 end

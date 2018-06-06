@@ -15,6 +15,8 @@ module CreditCardFinder
 
       def lookup(number)
         @card_data = CreditCardBin.new(number).data
+        return if @card_data.nil?
+
         self
       rescue NotFound
         nil
