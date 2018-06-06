@@ -9,6 +9,27 @@ module CreditCardFinder
     class Bincodes
       BIN_RANGE = 0..5
 
+      NetworkError = Class.new(StandardError)
+
+      NET_HTTP_EXCEPTIONS = [
+        IOError,
+        Errno::ECONNABORTED,
+        Errno::ECONNREFUSED,
+        Errno::ECONNRESET,
+        Errno::EHOSTUNREACH,
+        Errno::EINVAL,
+        Errno::ENETUNREACH,
+        Errno::EPIPE,
+        Net::HTTPBadResponse,
+        Net::HTTPHeaderSyntaxError,
+        Net::ProtocolError,
+        SocketError,
+        Zlib::GzipFile::Error,
+      ]
+
+      NET_HTTP_EXCEPTIONS << OpenSSL::SSL::SSLError if defined?(OpenSSL)
+      NET_HTTP_EXCEPTIONS << Net::OpenTimeout if defined?(Net::OpenTimeout)
+
       attr_reader :data, :errors
 
       def initialize
@@ -25,6 +46,10 @@ module CreditCardFinder
         end
 
         handle_response(response)
+      
+      rescue *NET_HTTP_EXCEPTIONS => e
+        logger.error("#{e.class}: #{e}")
+        raise NetworkError, e
       end
 
       def valid?

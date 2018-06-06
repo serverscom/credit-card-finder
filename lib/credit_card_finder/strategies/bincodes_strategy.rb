@@ -9,6 +9,8 @@ module CreditCardFinder
 
         @card_data = res.data
         self
+      rescue CreditCardFinder::Clients::Bincodes::NetworkError => e
+        nil
       end
 
       CARD_INFO_METHODS.each do |m|

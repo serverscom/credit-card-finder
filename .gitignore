@@ -11,3 +11,4 @@
 .rspec_status
 .rubocop-https---raw-githubusercontent-com-serverscom-best-practices-master--rubocop-yml
 .DS_Store
+Gemfile.lock

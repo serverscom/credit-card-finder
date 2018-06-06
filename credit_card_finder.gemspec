@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['sa@servers.com']
 
   spec.summary       = 'Find credit card information by BIN/IIN'
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/serverscom/credit-card-finder'
   spec.license       = 'MIT'
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
