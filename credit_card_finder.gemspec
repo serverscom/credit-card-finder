@@ -39,5 +39,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'webmock', '~> 3.13'
 
   spec.add_dependency 'credit_card_bins'
-  spec.add_runtime_dependency 'dry-configurable'
+  spec.add_runtime_dependency 'dry-configurable', '>= 0.13'
 end
