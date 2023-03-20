@@ -16,5 +16,6 @@ module CreditCardFinder
     setting :strategies, default: %w[CreditCardBinsStrategy BincodesStrategy]
 
     setting :logger, default: Logger.new(STDOUT)
+    setting :proxy
   end
 end

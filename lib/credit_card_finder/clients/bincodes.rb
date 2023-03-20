@@ -40,13 +40,23 @@ module CreditCardFinder
         response = nil
         uri = uri(code.to_s[BIN_RANGE])
 
-        Net::HTTP.start(uri.host, uri.port, read_timeout: timeout, use_ssl: true) do |http|
+        args = [uri.host, uri.port]
+
+        if CreditCardFinder.config.proxy
+          proxy = URI.parse(CreditCardFinder.config.proxy)
+
+          args << proxy.host
+          args << proxy.port
+          args << proxy.user
+          args << proxy.password
+        end
+
+        Net::HTTP.start(*args, read_timeout: timeout, use_ssl: true) do |http|
           request = Net::HTTP::Get.new(uri)
           response = http.request(request)
         end
 
         handle_response(response)
-      
       rescue *NET_HTTP_EXCEPTIONS => e
         logger.error("#{e.class}: #{e}")
         raise NetworkError, e
